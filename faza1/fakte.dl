@@ -1,0 +1,182 @@
+% Ndreqe - Faza 1: fakte te gjeneruara nga CSV-te e data/.
+% 11 relacione, nje fakt per cdo rresht te CSV-ve.
+% Vlerat NULL/empty perfaqesohen me konstanten null.
+
+% Relation: disponueshmeria | facts: 12
+disponueshmeria(1, 16, 1, '08:00', '16:00').
+disponueshmeria(2, 16, 3, '08:00', '16:00').
+disponueshmeria(3, 17, 2, '09:00', '17:00').
+disponueshmeria(4, 17, 4, '09:00', '17:00').
+disponueshmeria(5, 18, 1, '10:00', '18:00').
+disponueshmeria(6, 19, 5, '08:00', '14:00').
+disponueshmeria(7, 20, 6, '09:00', '15:00').
+disponueshmeria(8, 21, 2, '08:00', '16:00').
+disponueshmeria(9, 22, 3, '09:00', '17:00').
+disponueshmeria(10, 23, 4, '08:00', '16:00').
+disponueshmeria(11, 24, 5, '10:00', '18:00').
+disponueshmeria(12, 25, 6, '08:00', '13:00').
+
+% Relation: foto_rezervimit | facts: 10
+foto_rezervimit(1, 1, 'https://ndreqe.com/uploads/rz1_1.jpg', 'jpg', 850, '2026-09-01 09:16:00').
+foto_rezervimit(2, 1, 'https://ndreqe.com/uploads/rz1_2.jpg', 'jpg', 920, '2026-09-01 09:17:00').
+foto_rezervimit(3, 2, 'https://ndreqe.com/uploads/rz2_1.png', 'png', 1200, '2026-09-08 14:22:00').
+foto_rezervimit(4, 4, 'https://ndreqe.com/uploads/rz4_1.jpg', 'jpg', 780, '2026-09-17 11:02:00').
+foto_rezervimit(5, 5, 'https://ndreqe.com/uploads/rz5_1.webp', 'webp', 430, '2026-09-22 17:31:00').
+foto_rezervimit(6, 6, 'https://ndreqe.com/uploads/rz6_1.jpg', 'jpg', 1050, '2026-09-28 10:12:00').
+foto_rezervimit(7, 8, 'https://ndreqe.com/uploads/rz8_1.jpg', 'jpg', 990, '2026-10-10 09:03:00').
+foto_rezervimit(8, 9, 'https://ndreqe.com/uploads/rz9_1.png', 'png', 1340, '2026-10-16 10:02:00').
+foto_rezervimit(9, 12, 'https://ndreqe.com/uploads/rz12_1.jpg', 'jpg', 670, '2026-11-10 08:32:00').
+foto_rezervimit(10, 13, 'https://ndreqe.com/uploads/rz13_1.webp', 'webp', 510, '2026-11-14 19:04:00').
+
+% Relation: historiku_statusit | facts: 17
+historiku_statusit(1, 1, null, 'ne_pritje', '2026-09-01 09:15:00', 1).
+historiku_statusit(2, 1, 'ne_pritje', 'konfirmuar', '2026-09-01 12:00:00', 16).
+historiku_statusit(3, 1, 'konfirmuar', 'perfunduar', '2026-09-05 12:00:00', 16).
+historiku_statusit(4, 2, null, 'ne_pritje', '2026-09-08 14:20:00', 2).
+historiku_statusit(5, 2, 'ne_pritje', 'konfirmuar', '2026-09-08 18:00:00', 16).
+historiku_statusit(6, 2, 'konfirmuar', 'perfunduar', '2026-09-12 11:00:00', 16).
+historiku_statusit(7, 15, null, 'ne_pritje', '2026-10-06 16:00:00', 3).
+historiku_statusit(8, 15, 'ne_pritje', 'konfirmuar', '2026-10-07 09:00:00', 19).
+historiku_statusit(9, 15, 'konfirmuar', 'anuluar', '2026-10-09 20:00:00', 3).
+historiku_statusit(10, 9, null, 'ne_pritje', '2026-10-16 10:00:00', 9).
+historiku_statusit(11, 9, 'ne_pritje', 'anuluar', '2026-10-18 09:30:00', 9).
+historiku_statusit(12, 12, null, 'ne_pritje', '2026-11-10 08:30:00', 10).
+historiku_statusit(13, 12, 'ne_pritje', 'konfirmuar', '2026-11-10 15:00:00', 24).
+historiku_statusit(14, 16, null, 'ne_pritje', '2026-11-12 10:00:00', 6).
+historiku_statusit(15, 16, 'ne_pritje', 'konfirmuar', '2026-11-12 16:00:00', 22).
+historiku_statusit(16, 13, null, 'ne_pritje', '2026-11-14 19:00:00', 11).
+historiku_statusit(17, 14, null, 'ne_pritje', '2026-11-15 09:00:00', 13).
+
+% Relation: kategoria | facts: 10
+kategoria(1, 'Elektricist', 'Sherbime elektrike dhe instalime elektrike').
+kategoria(2, 'Hidraulik', 'Instalime dhe riparime te ujit').
+kategoria(3, 'Montues', 'Montim i mobilieve dhe pajisjeve shtepiake').
+kategoria(4, 'Pastrim', 'Sherbime profesionale te pastrimit').
+kategoria(5, 'Lyerje', 'Lyerje dhe dekorim i ambienteve te brendshme').
+kategoria(6, 'Mekanik', 'Riparime dhe mirembajtje mekanike').
+kategoria(7, 'Klimatizim', 'Montim dhe servisim i klimave').
+kategoria(8, 'Murator', 'Punime ndertimi dhe riparime muresh').
+kategoria(9, 'Kopshtari', 'Mirembajtje e kopshteve dhe oborreve').
+kategoria(10, 'Selitje', 'Transport dhe bartje e orendive').
+
+% Relation: perdoruesi | facts: 26
+perdoruesi(1, 'Arben', 'Krasniqi', 'arben.krasniqi@email.com', '+38344100001', 1, 'klient', '2026-01-10', 'aktiv').
+perdoruesi(2, 'Blerta', 'Berisha', 'blerta.berisha@email.com', '+38344100002', 1, 'klient', '2026-01-14', 'aktiv').
+perdoruesi(3, 'Driton', 'Gashi', 'driton.gashi@email.com', '+38344100003', 1, 'klient', '2026-01-20', 'aktiv').
+perdoruesi(4, 'Elira', 'Hoxha', 'elira.hoxha@email.com', '+38344100004', 2, 'klient', '2026-02-02', 'aktiv').
+perdoruesi(5, 'Fatmir', 'Morina', 'fatmir.morina@email.com', '+38344100005', 3, 'klient', '2026-02-08', 'aktiv').
+perdoruesi(6, 'Gentiana', 'Shala', 'gentiana.shala@email.com', '+38344100006', 4, 'klient', '2026-02-15', 'aktiv').
+perdoruesi(7, 'Hana', 'Kelmendi', 'hana.kelmendi@email.com', '+38344100007', 5, 'klient', '2026-03-01', 'aktiv').
+perdoruesi(8, 'Ilir', 'Bytyqi', 'ilir.bytyqi@email.com', '+38344100008', 6, 'klient', '2026-03-12', 'aktiv').
+perdoruesi(9, 'Jeta', 'Rama', 'jeta.rama@email.com', '+38344100009', 7, 'klient', '2026-03-25', 'aktiv').
+perdoruesi(10, 'Kujtim', 'Zeka', 'kujtim.zeka@email.com', '+38344100010', 8, 'klient', '2026-04-04', 'aktiv').
+perdoruesi(11, 'Lule', 'Avdiu', 'lule.avdiu@email.com', '+38344100011', 9, 'klient', '2026-04-18', 'aktiv').
+perdoruesi(12, 'Mentor', 'Hasani', 'mentor.hasani@email.com', '+38344100012', 1, 'klient', '2026-05-03', 'aktiv').
+perdoruesi(13, 'Nora', 'Gjoka', 'nora.gjoka@email.com', '+38344100013', 12, 'klient', '2026-05-20', 'aktiv').
+perdoruesi(14, 'Orges', 'Dervishi', 'orges.dervishi@email.com', '+38344100014', 5, 'klient', '2026-06-07', 'joaktiv').
+perdoruesi(15, 'Pranvera', 'Kastrati', 'pranvera.kastrati@email.com', '+38344100015', 1, 'klient', '2026-06-22', 'aktiv').
+perdoruesi(16, 'Besnik', 'Maxhuni', 'besnik.maxhuni@email.com', '+38349200016', 1, 'profesionist', '2025-11-05', 'aktiv').
+perdoruesi(17, 'Valon', 'Rexhepi', 'valon.rexhepi@email.com', '+38349200017', 1, 'profesionist', '2025-11-12', 'aktiv').
+perdoruesi(18, 'Agim', 'Thaci', 'agim.thaci@email.com', '+38349200018', 2, 'profesionist', '2025-12-01', 'aktiv').
+perdoruesi(19, 'Shpend', 'Ukaj', 'shpend.ukaj@email.com', '+38349200019', 3, 'profesionist', '2025-12-10', 'aktiv').
+perdoruesi(20, 'Burim', 'Selimi', 'burim.selimi@email.com', '+38349200020', 4, 'profesionist', '2025-12-18', 'aktiv').
+perdoruesi(21, 'Faton', 'Krasniqi', 'faton.krasniqi@email.com', '+38349200021', 5, 'profesionist', '2026-01-05', 'aktiv').
+perdoruesi(22, 'Granit', 'Mustafa', 'granit.mustafa@email.com', '+38349200022', 6, 'profesionist', '2026-01-16', 'aktiv').
+perdoruesi(23, 'Ramadan', 'Jashari', 'ramadan.jashari@email.com', '+38349200023', 7, 'profesionist', '2026-02-03', 'aktiv').
+perdoruesi(24, 'Xhevat', 'Bajrami', 'xhevat.bajrami@email.com', '+38349200024', 8, 'profesionist', '2026-02-20', 'aktiv').
+perdoruesi(25, 'Skender', 'Osmani', 'skender.osmani@email.com', '+38349200025', 9, 'profesionist', '2026-03-09', 'aktiv').
+perdoruesi(26, 'Admin', 'Sistemi', 'admin@ndreqe.com', '+38338300026', 1, 'admin', '2025-10-01', 'aktiv').
+
+% Relation: profesionisti | facts: 10
+profesionisti(16, 'Hidraulik me pervoje ne instalime shtepiake', 12, 1, '2025-11-20').
+profesionisti(17, 'Elektricist dhe hidraulik per shtepi dhe lokale', 9, 1, '2025-11-25').
+profesionisti(18, 'Hidraulik per riparime te shpejta', 6, 1, '2025-12-15').
+profesionisti(19, 'Elektricist i licencuar', 8, 1, '2025-12-22').
+profesionisti(20, 'Pastrim profesional i shtepive', 3, 0, null).
+profesionisti(21, 'Montues mobiljesh dhe elektricist', 5, 1, '2026-01-20').
+profesionisti(22, 'Lyerje dhe dekorim i brendshem', 7, 1, '2026-02-01').
+profesionisti(23, 'Mekanik dhe montues', 10, 1, '2026-02-18').
+profesionisti(24, 'Montim dhe servisim klimash', 2, 0, null).
+profesionisti(25, 'Murator dhe kopshtar', 4, 0, null).
+
+% Relation: profesionisti_kategoria | facts: 14
+profesionisti_kategoria(16, 2, 25.00, '2025-11-20', 'aktiv').
+profesionisti_kategoria(17, 1, 20.00, '2025-11-25', 'aktiv').
+profesionisti_kategoria(17, 2, 30.00, '2025-11-25', 'aktiv').
+profesionisti_kategoria(18, 2, 25.00, '2025-12-15', 'aktiv').
+profesionisti_kategoria(19, 1, 22.00, '2025-12-22', 'aktiv').
+profesionisti_kategoria(20, 4, 15.00, '2025-12-30', 'aktiv').
+profesionisti_kategoria(21, 1, 25.00, '2026-01-20', 'aktiv').
+profesionisti_kategoria(21, 3, 18.00, '2026-01-20', 'aktiv').
+profesionisti_kategoria(22, 5, 12.00, '2026-02-01', 'aktiv').
+profesionisti_kategoria(23, 3, 20.00, '2026-02-18', 'aktiv').
+profesionisti_kategoria(23, 6, 30.00, '2026-02-18', 'aktiv').
+profesionisti_kategoria(24, 7, 35.00, '2026-03-01', 'aktiv').
+profesionisti_kategoria(25, 8, 40.00, '2026-03-15', 'aktiv').
+profesionisti_kategoria(25, 9, 25.00, '2026-03-15', 'aktiv').
+
+% Relation: qyteti | facts: 12
+qyteti(1, 'Prishtine', 'Prishtina').
+qyteti(2, 'Prizren', 'Prizreni').
+qyteti(3, 'Peje', 'Peja').
+qyteti(4, 'Gjakove', 'Gjakova').
+qyteti(5, 'Ferizaj', 'Ferizaj').
+qyteti(6, 'Gjilan', 'Gjilani').
+qyteti(7, 'Mitrovice', 'Mitrovica').
+qyteti(8, 'Vushtrri', 'Mitrovica').
+qyteti(9, 'Podujeve', 'Prishtina').
+qyteti(10, 'Suhareke', 'Prizreni').
+qyteti(11, 'Rahovec', 'Prizreni').
+qyteti(12, 'Lipjan', 'Prishtina').
+
+% Relation: rezervimi | facts: 16
+rezervimi(1, 1, 16, 2, 1, 'Rr. Agim Ramadani 12', '2026-09-05', '10:00', 'Rrjedh rubineti ne kuzhine', 'perfunduar', 35.00, '2026-09-01 09:15:00').
+rezervimi(2, 2, 16, 2, 1, 'Rr. Luan Haradinaj 4', '2026-09-12', '09:00', 'Tubi i bllokuar ne banjo', 'perfunduar', 40.00, '2026-09-08 14:20:00').
+rezervimi(3, 3, 17, 1, 1, 'Rr. Nena Tereze 20', '2026-09-18', '11:00', 'Priza nuk punon', 'perfunduar', 25.00, '2026-09-15 08:40:00').
+rezervimi(4, 4, 18, 2, 2, 'Rr. Remzi Ademaj 7', '2026-09-20', '10:00', 'Bojleri nuk ngroh', 'perfunduar', 50.00, '2026-09-17 11:00:00').
+rezervimi(5, 5, 19, 1, 3, 'Rr. Mbreteresha Teute 3', '2026-09-25', '08:00', 'Siguresat bien shpesh', 'perfunduar', 30.00, '2026-09-22 17:30:00').
+rezervimi(6, 6, 20, 4, 4, 'Rr. Ismail Qemali 15', '2026-10-02', '09:00', 'Pastrim pas renovimit', 'perfunduar', 60.00, '2026-09-28 10:10:00').
+rezervimi(7, 7, 21, 3, 5, 'Rr. Deshmoret 9', '2026-10-08', '10:00', 'Montim i dollapit', 'perfunduar', 45.00, '2026-10-05 13:45:00').
+rezervimi(8, 8, 22, 5, 6, 'Rr. Adem Jashari 11', '2026-10-14', '09:00', 'Lyerje e dy dhomave', 'perfunduar', 120.00, '2026-10-10 09:00:00').
+rezervimi(9, 9, 23, 6, 7, 'Rr. Ibrahim Rugova 1', '2026-10-20', '10:00', 'Riparim i deres se garazhit', 'anuluar', null, '2026-10-16 10:00:00').
+rezervimi(10, 12, 16, 2, 1, 'Rr. Fehmi Agani 30', '2026-10-25', '13:00', 'Rubinet i ri ne banjo', 'perfunduar', 30.00, '2026-10-22 18:05:00').
+rezervimi(11, 15, 21, 1, 1, 'Rr. Garibaldi 6', '2026-11-02', '10:00', 'Instalim ndricimi', 'perfunduar', 40.00, '2026-10-30 12:30:00').
+rezervimi(12, 10, 24, 7, 8, 'Rr. Hasan Prishtina 5', '2026-11-20', '10:00', 'Servisim i klimes', 'konfirmuar', null, '2026-11-10 08:30:00').
+rezervimi(13, 11, 25, 8, 9, 'Rr. Zahir Pajaziti 8', '2026-11-22', '09:00', 'Riparim i murit', 'ne_pritje', null, '2026-11-14 19:00:00').
+rezervimi(14, 13, 17, 1, 12, 'Rr. Skenderbeu 2', '2026-11-25', '11:00', 'Kabllo e demtuar', 'ne_pritje', null, '2026-11-15 09:00:00').
+rezervimi(15, 3, 19, 1, 4, 'Rr. Nene Tereza 14', '2026-10-10', '14:00', 'Nderrim i panelit elektrik', 'anuluar', null, '2026-10-06 16:00:00').
+rezervimi(16, 6, 22, 5, 2, 'Rr. Remzi Ademaj 22', '2026-11-28', '10:00', 'Lyerje e korridorit', 'konfirmuar', null, '2026-11-12 10:00:00').
+
+% Relation: vleresimi | facts: 10
+vleresimi(1, 1, 5, 'Pune shume e paster dhe e shpejte', '2026-09-06').
+vleresimi(2, 2, 5, 'Profesionist i sjellshem dhe korrekt', '2026-09-13').
+vleresimi(3, 3, 4, 'Erdhi me vonese por e rregulloi', '2026-09-19').
+vleresimi(4, 4, 5, 'Shume i mire', '2026-09-21').
+vleresimi(5, 5, 3, 'Pune mesatare', '2026-09-26').
+vleresimi(6, 6, 1, 'Nuk e pastroi mire dhe vonoi shume', '2026-10-03').
+vleresimi(7, 7, 4, 'Montim i mire', '2026-10-09').
+vleresimi(8, 8, 5, 'Ngjyrat dolen shume bukur', '2026-10-15').
+vleresimi(9, 10, 4, 'Shpejt dhe me cmim te mire', '2026-10-26').
+vleresimi(10, 11, 5, 'E rekomandoj', '2026-11-03').
+
+% Relation: zona_sherbimit | facts: 20
+zona_sherbimit(16, 1).
+zona_sherbimit(16, 9).
+zona_sherbimit(17, 1).
+zona_sherbimit(17, 12).
+zona_sherbimit(18, 2).
+zona_sherbimit(18, 10).
+zona_sherbimit(19, 3).
+zona_sherbimit(19, 4).
+zona_sherbimit(20, 4).
+zona_sherbimit(20, 6).
+zona_sherbimit(21, 5).
+zona_sherbimit(21, 1).
+zona_sherbimit(22, 6).
+zona_sherbimit(22, 2).
+zona_sherbimit(23, 7).
+zona_sherbimit(23, 8).
+zona_sherbimit(24, 8).
+zona_sherbimit(24, 7).
+zona_sherbimit(25, 9).
+zona_sherbimit(25, 1).

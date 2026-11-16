@@ -1,0 +1,21 @@
+% Ndreqe - Faza 1: Datalog rules
+% Q1: Profesionistet qe ofrojne kategorine Hidraulik
+q1_hidraulik(Emri, Mbiemri) :-
+    kategoria(KID, 'Hidraulik', _),
+    profesionisti_kategoria(UID_Prof, KID, _, _, _),
+    profesionisti(UID_Prof, _, _, _, _),
+    perdoruesi(UID_Prof, Emri, Mbiemri, _, _, _, _, _, _).
+
+% Q2: Rezervimet e klientit me email X me profesioniste te verifikuar.
+% Email eshte argument i pare; per testim perdoret 'arben.krasniqi@email.com'.
+q2_rezervime_me_profesioniste_te_verifikuar(Email, RZID, UID_Klienti, UID_Prof, Statusi) :-
+    perdoruesi(UID_Klienti, _, _, Email, _, _, _, _, _),
+    rezervimi(RZID, UID_Klienti, UID_Prof, _, _, _, _, _, _, Statusi, _, _),
+    profesionisti(UID_Prof, _, _, 1, _).
+
+% Q3: Profesionistet me te pakten nje rezervim nga klient qe banon ne Prishtine.
+q3_profesioniste_me_kliente_ne_prishtine(UID_Prof, EmriProf, MbiemriProf) :-
+    perdoruesi(UID_Klienti, _, _, _, _, QID, 'klient', _, _),
+    qyteti(QID, 'Prishtine', _),
+    rezervimi(_, UID_Klienti, UID_Prof, _, _, _, _, _, _, _, _, _),
+    perdoruesi(UID_Prof, EmriProf, MbiemriProf, _, _, _, _, _, _).
