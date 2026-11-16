@@ -6,15 +6,15 @@ q1(UID, Emri, Mbiemri) :-
     perdoruesi(UID, Emri, Mbiemri, _, _, _, _, _, _).
 
 % Q2: Rezervimet e klientit me email 'arben.krasniqi@email.com' te profesioniste te verifikuar
-q2(RZID, UID_Prof, KID, Data_Terminit, Ora, Statusi) :-
+q2(RZID, UID_Klienti, UID_Prof, Statusi) :-
     perdoruesi(UID_Klienti, _, _, 'arben.krasniqi@email.com', _, _, _, _, _),
-    rezervimi(RZID, UID_Klienti, UID_Prof, KID, _, _, Data_Terminit, Ora, _, Statusi, _, _),
+    rezervimi(RZID, UID_Klienti, UID_Prof, _, _, _, _, _, _, Statusi, _, _),
     profesionisti(UID_Prof, _, _, 1, _).
 
 % Q3: Profesionistet me se paku nje rezervim nga klient i Prishtines
 q3(UID_Prof, Emri, Mbiemri) :-
     qyteti(QID, 'Prishtine', _),
-    perdoruesi(UID_Klienti, _, _, _, _, QID, _, _, _),
+    perdoruesi(UID_Klienti, _, _, _, _, QID, 'klient', _, _),
     rezervimi(_, UID_Klienti, UID_Prof, _, _, _, _, _, _, _, _, _),
     profesionisti(UID_Prof, _, _, _, _),
     perdoruesi(UID_Prof, Emri, Mbiemri, _, _, _, _, _, _).
