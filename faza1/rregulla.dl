@@ -1,0 +1,51 @@
+% Q1: Profesionistet qe ofrojne "Hidraulik"
+q1(UID, Emri, Mbiemri) :-
+    kategoria(KID, 'Hidraulik', _),
+    profesionisti_kategoria(UID, KID, _, _, _),
+    profesionisti(UID, _, _, _, _),
+    perdoruesi(UID, Emri, Mbiemri, _, _, _, _, _, _).
+
+% Q2: Rezervimet e klientit me email 'arben.krasniqi@email.com' te profesioniste te verifikuar
+q2(RZID, UID_Klienti, UID_Prof, Statusi) :-
+    perdoruesi(UID_Klienti, _, _, 'arben.krasniqi@email.com', _, _, _, _, _),
+    rezervimi(RZID, UID_Klienti, UID_Prof, _, _, _, _, _, _, Statusi, _, _),
+    profesionisti(UID_Prof, _, _, 1, _).
+
+% Q3: Profesionistet me se paku nje rezervim nga klient i Prishtines
+q3(UID_Prof, Emri, Mbiemri) :-
+    qyteti(QID, 'Prishtine', _),
+    perdoruesi(UID_Klienti, _, _, _, _, QID, 'klient', _, _),
+    rezervimi(_, UID_Klienti, UID_Prof, _, _, _, _, _, _, _, _, _),
+    profesionisti(UID_Prof, _, _, _, _),
+    perdoruesi(UID_Prof, Emri, Mbiemri, _, _, _, _, _, _).
+
+% Q4: Profesionistet qe ofrojne nje kategori por s'kane rezervim ne te
+ka_rezervim_kat(UID_Prof, KID) :-
+    rezervimi(_, _, UID_Prof, KID, _, _, _, _, _, _, _, _).
+
+q4(UID_Prof, Emri, Mbiemri) :-
+    profesionisti_kategoria(UID_Prof, KID, _, _, _),
+    not(ka_rezervim_kat(UID_Prof, KID)),
+    profesionisti(UID_Prof, _, _, _, _),
+    perdoruesi(UID_Prof, Emri, Mbiemri, _, _, _, _, _, _).
+
+% Q5: Profesionistet me note 5 nga me shume se nje klient
+q5(UID_Prof, Emri, Mbiemri) :-
+    vleresimi(_, RZID1, 5, _, _),
+    rezervimi(RZID1, UID_Klienti1, UID_Prof, _, _, _, _, _, _, _, _, _),
+    vleresimi(_, RZID2, 5, _, _),
+    rezervimi(RZID2, UID_Klienti2, UID_Prof, _, _, _, _, _, _, _, _, _),
+    UID_Klienti1 \= UID_Klienti2,
+    profesionisti(UID_Prof, _, _, _, _),
+    perdoruesi(UID_Prof, Emri, Mbiemri, _, _, _, _, _, _).
+
+% Q6: Klientet qe kane rezervuar "Elektricist" ose kane dhene noten 1
+q6(UID_Klienti, Emri, Mbiemri) :-
+    kategoria(KID, 'Elektricist', _),
+    rezervimi(_, UID_Klienti, _, KID, _, _, _, _, _, _, _, _),
+    perdoruesi(UID_Klienti, Emri, Mbiemri, _, _, _, _, _, _).
+
+q6(UID_Klienti, Emri, Mbiemri) :-
+    vleresimi(_, RZID, 1, _, _),
+    rezervimi(RZID, UID_Klienti, _, _, _, _, _, _, _, _, _, _),
+    perdoruesi(UID_Klienti, Emri, Mbiemri, _, _, _, _, _, _).
